@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "UAH Currency Converter — Live & NBU Rates"
+  },
+  "extShortName": {
+    "message": "Converter"
+  },
+  "extDescription": {
+    "message": "Convert UAH, USD, EUR and 60+ currencies at once. Live mid-market or official NBU rate, math in the input, EN/UA."
+  },
+  "openPopup": {
+    "message": "Open converter"
+  }
+}

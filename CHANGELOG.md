@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.1 — 2026-10-03
+
+- Chrome Web Store ready: localized name and description (en, uk), store graphics in `store/`
+- Removed the unnecessary `clipboardWrite` permission (copying still works)
+- Store-compliant 128 px icon (16 px transparent padding)
+- Fixed: typing right after clicking the amount no longer gets replaced by the auto-select
+- Fixed: empty strip under the footer
+- `build.ps1` now writes forward-slash zip paths
+
 ## 3.0.0 — 2026-10-03
 
 First public release.

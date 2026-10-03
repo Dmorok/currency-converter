@@ -177,7 +177,7 @@ function fmtTime(ts) {
 
 function fitBig() {
   const len = $big.value.length;
-  $big.style.fontSize = len > 15 ? '28px' : len > 12 ? '34px' : len > 9 ? '42px' : '52px';
+  $big.style.fontSize = len > 13 ? '28px' : len > 10 ? '34px' : len > 7 ? '42px' : '52px';
 }
 
 function renderRows() {
@@ -259,7 +259,10 @@ $big.addEventListener('input', () => {
   save('amount');
 });
 $big.addEventListener('blur', () => { $big.classList.remove('bad'); $big.value = fmt(S.amount); fitBig(); });
-$big.addEventListener('focus', () => requestAnimationFrame(() => $big.select()));
+$big.addEventListener('focus', () => {
+  const before = $big.value;
+  requestAnimationFrame(() => { if ($big.value === before) $big.select(); }); // don't clobber fast typing
+});
 $big.addEventListener('keydown', e => {
   if (e.key === 'Enter') { $big.value = fmt(S.amount); fitBig(); $big.select(); }
 });

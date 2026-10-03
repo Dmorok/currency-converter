@@ -65,7 +65,6 @@ The extension has no analytics, no tracking and no accounts. It only makes reque
 |---|---|
 | `storage` | Saves your currency list, settings and cached rates |
 | `alarms` | Refreshes rates in the background every 5 minutes |
-| `clipboardWrite` | Powers the "Copy value" / "Copy all" actions |
 | host permissions | Fetch rates from the four endpoints above, and nothing else |
 
 ## Project structure
@@ -75,11 +74,13 @@ manifest.json      MV3 manifest
 background.js      service worker: fetches, normalises and caches rates
 popup.html/.css/.js  the UI
 i18n.js            English / Ukrainian strings and currency names
+_locales/          store name & description (en, uk)
 currencies.js      currency list (code → flag, English name)
 flags/             SVG flags (flag-icons, MIT)
 fonts/             Onest (SIL OFL 1.1)
 icons/             extension icons
 scripts/build.ps1  packs a clean release zip into dist/
+store/             Chrome Web Store graphics and listing texts
 ```
 
 ## Build a release zip
