@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Converter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <section class="hero">
+      <div class="top">
+        <div class="brand"><span class="mark">₴</span> <span data-i18n="brand">Converter</span></div>
+        <div class="tools">
+          <button class="ib" id="btn-theme" data-i18n-title="theme"></button>
+          <button class="ib" id="btn-refresh" data-i18n-title="refresh"></button>
+          <button class="ib" id="btn-settings" data-i18n-title="settings"></button>
+        </div>
+      </div>
+
+      <button class="pill" id="pill" data-i18n-title="changeMain"></button>
+
+      <input id="big" class="big" type="text" inputmode="decimal" autocomplete="off" spellcheck="false">
+
+      <div class="rateline">
+        <span class="dot" id="dot"></span>
+        <span id="rateline"></span>
+      </div>
+    </section>
+
+    <section class="sheet">
+      <div id="rows"></div>
+      <div class="actions">
+        <label class="fee" id="fee-wrap" data-i18n-title="feeHint">
+          <span>+</span><input id="fee" type="text" inputmode="decimal" autocomplete="off" value="0"><span data-i18n="fee">% fee</span>
+        </label>
+        <button class="add" id="btn-add" data-i18n="add">+ Add currency</button>
+      </div>
+    </section>
+
+    <footer>
+      <button id="src-label" class="flink" data-i18n-title="switchSource"></button>
+      <span class="sep">·</span>
+      <button id="btn-copy-all" class="flink" data-i18n="copyAll">Copy all</button>
+      <span class="sep">·</span>
+      <span>v<span id="ver"></span></span>
+      <span class="sep">·</span>
+      <a class="flink heart" href="https://donatello.to/dmoroka" target="_blank" rel="noopener" data-i18n="support" data-i18n-title="supportHint">♥ Support</a>
+    </footer>
+
+    <!-- picker -->
+    <div class="panel" id="picker" hidden>
+      <div class="panel-head">
+        <input id="picker-search" type="text" data-i18n-ph="search" autocomplete="off">
+        <button class="ib dark" id="picker-close" data-i18n-title="close">✕</button>
+      </div>
+      <div class="panel-sub" id="picker-sub"></div>
+      <div id="picker-list"></div>
+    </div>
+
+    <!-- settings -->
+    <div class="panel" id="settings" hidden>
+      <div class="panel-head">
+        <strong data-i18n="settings">Settings</strong>
+        <button class="ib dark" id="settings-close" data-i18n-title="close">✕</button>
+      </div>
+      <div class="set-body">
+        <div>
+          <div class="set-label" data-i18n="language">Language</div>
+          <div class="seg" id="seg-lang">
+            <button data-v="en">English</button>
+            <button data-v="uk">Українська</button>
+          </div>
+        </div>
+        <div>
+          <div class="set-label" data-i18n="source">Rate source</div>
+          <div class="seg" id="seg-source">
+            <button data-v="market" data-i18n="srcMarketShort">Mid-market</button>
+            <button data-v="nbu" data-i18n="srcNbuShort">NBU official</button>
+          </div>
+          <div class="set-hint" id="src-hint"></div>
+        </div>
+        <div>
+          <div class="set-label" data-i18n="decimals">Decimals</div>
+          <div class="seg" id="seg-dec">
+            <button data-v="0">0</button>
+            <button data-v="2">2</button>
+            <button data-v="4">4</button>
+          </div>
+        </div>
+        <div>
+          <div class="set-label" data-i18n="tips">Tips</div>
+          <ul class="tips">
+            <li data-i18n="tip1"></li>
+            <li data-i18n-html="tip2"></li>
+            <li data-i18n-html="tip3"></li>
+            <li data-i18n-html="tip4"></li>
+          </ul>
+        </div>
+        <button class="danger-link" id="btn-reset-list" data-i18n="resetList">Reset currency list</button>
+      </div>
+    </div>
+
+    <div id="menu" class="menu" hidden></div>
+    <div id="toast" hidden></div>
+  </div>
+  <script src="currencies.js"></script>
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
